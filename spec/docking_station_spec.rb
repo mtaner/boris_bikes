@@ -21,6 +21,13 @@ describe DockingStation do
     expect(ds.bikes).to eq docked_bike
   end
 
+  it "should release a bike" do
+    2.times {subject.dock(bike)}
+    #subject.release_bike
+    #expect(subject.bikes.length).to eq 1
+    expect(subject.release_bike).to eq subject.bikes[-1]
+  end
+
   it "raises an error if no bikes are available" do
     expect{subject.release_bike}.to raise_error "No more bikes"
   end
