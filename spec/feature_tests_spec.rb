@@ -1,3 +1,5 @@
+=begin
+#unnecesary to test (private)
 require "bike"
 require "docking_station"
 
@@ -7,3 +9,4 @@ describe DockingStation do
     expect(subject.dock(bike)).to eq subject.bikes
   end
 end
+=end

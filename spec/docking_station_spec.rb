@@ -15,7 +15,8 @@ describe DockingStation do
   it "should respond to docking one bike" do
     expect(subject).to respond_to(:dock).with(1).argument
   end
-
+=begin
+# Tests for @bike (private)
   it "should show a bike that has been docked" do
     docked_bike = ds.dock(bike)
     expect(ds.bikes).to eq docked_bike
@@ -27,7 +28,7 @@ describe DockingStation do
     #expect(subject.bikes.length).to eq 1
     expect(subject.release_bike).to eq subject.bikes[-1]
   end
-
+=end
   it "should be able to set different capacities" do
     ds2 = DockingStation.new(30)
     expect(ds2.capacity).to eq 30
