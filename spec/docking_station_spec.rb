@@ -33,7 +33,8 @@ describe DockingStation do
   end
 
   it "raises an error if there are already 20 bikes at the docking station" do
-    expect {21.times {subject.dock(bike)}}.to raise_error "There are already 20 bikes at the docking station"
+    DockingStation::DEFAULT_CAPACITY.times {subject.dock(bike)}
+    expect {subject.dock(bike)}.to raise_error "There are already #{DockingStation::DEFAULT_CAPACITY} bikes at the docking station"
   end
 end
 
