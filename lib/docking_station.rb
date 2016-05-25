@@ -5,10 +5,11 @@ class DockingStation
 
   DEFAULT_CAPACITY = 20
 
-  attr_accessor :bikes
+  attr_accessor :bikes, :capacity
 
-  def initialize
+  def initialize(capacity=DEFAULT_CAPACITY)
     @bikes = []
+    @capacity = capacity
   end
 
   def release_bike
@@ -17,14 +18,14 @@ class DockingStation
   end
 
   def dock bike
-    fail "There are already #{DEFAULT_CAPACITY} bikes at the docking station" if full?
+    fail "There are already #{@capacity} bikes at the docking station" if full?
     @bikes << bike
   end
 
   private
 
   def full?
-    @bikes.length >= DEFAULT_CAPACITY
+    @bikes.length >= @capacity
   end
 
   def empty?

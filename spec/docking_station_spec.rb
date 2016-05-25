@@ -28,6 +28,11 @@ describe DockingStation do
     expect(subject.release_bike).to eq subject.bikes[-1]
   end
 
+  it "should be able to set different capacities" do
+    ds2 = DockingStation.new(30)
+    expect(ds2.capacity).to eq 30
+  end
+
   it "raises an error if no bikes are available" do
     expect{subject.release_bike}.to raise_error "No more bikes"
   end
@@ -36,6 +41,12 @@ describe DockingStation do
     DockingStation::DEFAULT_CAPACITY.times {subject.dock(bike)}
     expect {subject.dock(bike)}.to raise_error "There are already #{DockingStation::DEFAULT_CAPACITY} bikes at the docking station"
   end
+
+  it "raises an error if there are already more bikes than capacity set" do
+    ds3 = DockingStation.new(40)
+    expect {41.times{ds3.dock(bike)}}.to raise_error "There are already 40 bikes at the docking station"
+  end
+
 end
 
 
