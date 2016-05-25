@@ -21,8 +21,13 @@ describe DockingStation do
     expect(ds.bike).to eq docked_bike
   end
 
-  it 'raises an error if no bikes are available' do
+  it "raises an error if no bikes are available" do
     expect{subject.release_bike}.to raise_error "No more bikes"
+  end
+
+  it "raises an error if there is already a bike at the docking station" do
+    new_bike = subject.dock(bike)
+    expect {subject.dock(new_bike)}.to raise_error "There is already a bike at the docking station"
   end
 end
 
