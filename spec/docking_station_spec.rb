@@ -18,16 +18,15 @@ describe DockingStation do
 
   it "should show a bike that has been docked" do
     docked_bike = ds.dock(bike)
-    expect(ds.bike).to eq docked_bike
+    expect(ds.bikes).to eq docked_bike
   end
 
   it "raises an error if no bikes are available" do
     expect{subject.release_bike}.to raise_error "No more bikes"
   end
 
-  it "raises an error if there is already a bike at the docking station" do
-    new_bike = subject.dock(bike)
-    expect {subject.dock(new_bike)}.to raise_error "There is already a bike at the docking station"
+  it "raises an error if there are already 20 bikes at the docking station" do
+    expect {21.times {subject.dock(bike)}}.to raise_error "There are already 20 bikes at the docking station"
   end
 end
 
