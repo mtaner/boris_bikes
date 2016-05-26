@@ -13,8 +13,13 @@ class DockingStation
   end
 
   def release_bike
-    fail "No more bikes" if empty?
-    @bikes.pop
+    for i in 1..@bikes.length do
+      return @bikes.delete_at(-i) if @bikes[-i].working?
+    end
+
+    fail "No bikes available"
+    # fail "The bike is broken" if !@bikes.last.working?
+    # @bikes.pop if @bikes.last.working?
   end
 
   def dock bike
@@ -25,7 +30,7 @@ class DockingStation
   private
 
   attr_reader :bikes
-  
+
   def full?
     @bikes.length >= @capacity
   end
