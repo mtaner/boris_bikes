@@ -50,7 +50,3 @@ describe DockingStation do
   end
 
 end
-
-
-# nouns: member [of the public], bikes, docking stations, availability
-# verbs: release [bike], check docking station, not being charged [unnecessarily], not being confused
