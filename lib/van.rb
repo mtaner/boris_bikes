@@ -32,4 +32,30 @@ class Van
     end
   end
 
+  def collect(garage)
+    n = garage.bikes.length - 1
+    while n >= 0 do
+      if @bikes.length < @capacity
+        @bikes << garage.bikes[n]
+        garage.bikes.delete_at(n)
+      elsif @capacity == @bikes.length
+        fail "Van capacity reached"
+      end
+      n-=1
+    end
+  end
+
+  def distribute(station)
+    n = @bikes.length - 1
+    while n >= 0 do
+      if  station.bikes.length < station.capacity
+        station.bikes << @bikes[n]
+        @bikes.delete_at(n)
+      elsif station.capacity == station.bikes.length
+        fail "Station capacity reached"
+      end
+      n-=1
+    end
+  end
+
 end

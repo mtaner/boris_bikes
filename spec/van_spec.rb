@@ -43,4 +43,25 @@ describe Van do
       expect(garage.bikes).to eq ["dummy2","dummy1"]
     end
   end
+
+  describe "#collect" do
+    it "Collects working bikes from the garage" do
+      garage = double("garage", :bikes => ["dummy1","dummy2"])
+      van = Van.new
+      van.collect(garage)
+      expect(van.bikes).to eq ["dummy2","dummy1"]
+    end
+  end
+
+  describe "#distribute" do
+    it "distributes working bikes to a station" do
+      station = double("station", :bikes => [], :capacity => 20)
+      van = Van.new
+      van.bikes = ["dummy1","dummy2"]
+      van.distribute(station)
+      expect(station.bikes).to eq ["dummy2","dummy1"]
+      expect(van.bikes).to eq []
+    end
+  end
+
 end
