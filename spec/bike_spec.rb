@@ -17,4 +17,13 @@ describe Bike do
       expect(bike.working?).to eq false
     end
   end
+
+  describe "#fixed" do
+    it "should fix a broken bike" do
+      bike = Bike.new
+      bike.broken
+      bike.fixed
+      expect(bike.working?).to eq true
+    end
+  end
 end
