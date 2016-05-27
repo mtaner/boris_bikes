@@ -1,9 +1,11 @@
+require 'docking_station'
+require 'garage'
+require 'bike_containers'
+
 class Van
 attr_reader :bikes
 
-  def initialize
-    @bikes = []
-  end
+  include BikeContainer
 
   def collect_bikes_from_dock(dock)
   @bikes = dock.release_broken_bikes

@@ -1,8 +1,8 @@
+require 'bike_containers'
+
 class Garage
 attr_accessor :bikes
-  def initialize
-    @bikes = []
-  end
+  include BikeContainer
 
   def accept_bikes(bikes)
     @bikes = bikes
