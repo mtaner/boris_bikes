@@ -58,7 +58,7 @@ describe Van do
     dock = DockingStation.new
     allow(garage).to receive(:bikes=)
     subject.collect_bikes_from_garage(garage)
-    expect{subject.drop_bikes_at_dock(dock)}.to raise_error('Docking station is full')
+    expect{subject.drop_bikes_at_dock(dock)}.to raise_error('The container is full')
 
     end
   end

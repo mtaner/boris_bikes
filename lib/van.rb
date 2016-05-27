@@ -23,8 +23,7 @@ attr_reader :bikes
   end
 
   def drop_bikes_at_dock(dock)
-    @bikes.each {|bike| dock.dock(bike)}
+    @bikes.each {|bike| dock.add_bikes(bike)}
     @bikes = []
   end
-
 end

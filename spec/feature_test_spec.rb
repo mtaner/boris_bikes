@@ -7,8 +7,8 @@ require 'garage'
 describe 'feature test' do
   it 'works' do
     dock = DockingStation.new
-    3.times do dock.dock(Bike.new,false) end
-    17.times do dock.dock(Bike.new,true) end
+    3.times do dock.add_bikes(Bike.new) end
+    17.times do dock.add_bikes(Bike.new) end
     daniel = Van.new
     daniel.collect_bikes_from_dock(dock)
     daniel.bikes
