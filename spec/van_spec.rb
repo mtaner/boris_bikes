@@ -4,12 +4,12 @@ require 'docking_station'
 describe Van do
   let(:dock) {double(:dock)}
 
-  describe '::new' do
-    it {should be_instance_of(Van)}
-    it 'should start being empty' do
-    expect(subject.bikes).to eq []
-    end
-  end
+  # describe '::new' do
+  #   it {should be_instance_of(Van)}
+  #   it 'should start being empty' do
+  #   expect(subject.bikes).to eq []
+  #   end
+  # end
 
   describe '#collect_bikes_from_dock(dock)' do
     it {should respond_to(:collect_bikes_from_dock).with(1)}

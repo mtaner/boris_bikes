@@ -1,12 +1,12 @@
 require 'garage'
 
 describe Garage do
-  describe '::new' do
-    it {should be_instance_of(Garage)}
-    it 'should start with no bikes' do
-      expect(subject.bikes).to eq []
-    end
-  end
+  # describe '::new' do
+  #   it {should be_instance_of(Garage)}
+  #   it 'should start with no bikes' do
+  #     expect(subject.bikes).to eq []
+  #   end
+  # end
   describe '#accept_bikes(bikes)' do
     it 'responds to the method' do
     expect(subject).to respond_to(:accept_bikes).with(1)

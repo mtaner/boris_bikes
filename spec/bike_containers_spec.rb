@@ -1,16 +1,22 @@
+require 'bike_containers'
 require 'van'
-describe BikeContainer do
 
-shared_examples_for "bike containers" do
+
+shared_examples_for "bike_containers" do
   let(:bike_containers) { described_class.new}
   describe '#bikes' do
     it "it has a storage for bikes" do
-      bike_containers.bikes.should eq []
+      expect(bike_containers.bikes).to eq([])
     end
-  end
-  describe Van do
-    it_behaves_like "bike containers"
   end
 end
 
+describe Van do
+  it_behaves_like "bike_containers"
+end
+describe Garage do
+  it_behaves_like "bike_containers"
+end
+describe DockingStation do
+  it_behaves_like "bike_containers"
 end

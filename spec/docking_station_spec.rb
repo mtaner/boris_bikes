@@ -9,9 +9,9 @@ describe DockingStation do
 		expect(subject).to respond_to(:release_bike)
 	end
 
-	it 'responds to bike method' do
-		expect(subject).to respond_to(:bikes)
-	end
+	# it 'responds to bike method' do
+	# 	expect(subject).to respond_to(:bikes)
+	# end
 
 	describe "#release_bike" do
 		it 'releases a bike' do
